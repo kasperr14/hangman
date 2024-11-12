@@ -21,3 +21,70 @@ def display_current_progress(word, guessed_letters):
             display += "_ "
     return display.strip()
 
+def play_hangman():
+    # Initialization
+    word = get_word()
+    guessed_letters = set()
+    incorrect_guesses = 0
+    max_incorrect = 6
+    hangman_pics = [
+        """
+           ------
+           |    |
+           |
+           |
+           |
+           |
+        """,
+        """
+           ------
+           |    |
+           |    O
+           |
+           |
+           |
+        """,
+        """
+           ------
+           |    |
+           |    O
+           |    |
+           |
+           |
+        """,
+        """
+           ------
+           |    |
+           |    O
+           |   /|
+           |
+           |
+        """,
+        """
+           ------
+           |    |
+           |    O
+           |   /|\\
+           |
+           |
+        """,
+        """
+           ------
+           |    |
+           |    O
+           |   /|\\
+           |   /
+           |
+        """,
+        """
+           ------
+           |    |
+           |    O
+           |   /|\\
+           |   / \\
+           |
+        """,
+    ]
+
+    print("Welcome to Hangman!")
+    print(hangman_pics[0])
