@@ -10,3 +10,14 @@
 def get_word():
     word = input("Please provide a word to guess: ")
     return word.upper()
+
+def display_current_progress(word, guessed_letters):
+    """Function to display the current progress of the guessed word."""
+    display = ""
+    for letter in word:
+        if letter in guessed_letters:
+            display += letter + " "
+        else:
+            display += "_ "
+    return display.strip()
+
