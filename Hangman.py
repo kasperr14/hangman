@@ -15,7 +15,7 @@ def display_current_progress(word, guessed_letters):
     """Function to display the current progress of the guessed word."""
     display = ""
     for letter in word:
-        if letter in guessed_letters:
+        if letter in guessed_letters or letter == " ":
             display += letter + " "
         else:
             display += "_ "
@@ -92,6 +92,7 @@ def play_hangman():
     # Game loop
     while incorrect_guesses < max_incorrect:
         print("\n" + display_current_progress(word, guessed_letters))
+        print("Guessed letters:", ", ".join(sorted(guessed_letters)))  # Display guessed letters
         guess = input("Guess a letter: ").upper()
 
         if guess in guessed_letters:
@@ -110,3 +111,5 @@ def play_hangman():
 
         if incorrect_guesses == max_incorrect:
             print("\nGame Over! The word was:", word)
+
+play_hangman()
