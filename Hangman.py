@@ -100,7 +100,7 @@ def play_hangman():
         elif guess in word:
             guessed_letters.add(guess)
             print(f"Good guess! '{guess}' is in the word.")
-            if set(word) <= guessed_letters:
+            if all(letter in guessed_letters for letter in word if letter != " "):
                 print("\nCongratulations! You guessed the word:", word)
                 break
         else:
